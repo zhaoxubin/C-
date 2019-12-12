@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<windows.h>
+#pragma warning(disable:4996) 
+void LiftRevolve1(char *array,int k)
+{
+	char temp = *array;
+	
+	for (k ; k < 4; k++)
+	{
+		*(array +( k - 1)) = *(array + k);
+
+	}
+	*(array + 3) = temp;
+	for (k = 0; k < 4; k++)
+{
+	printf("%c", *(array + k));
+}
+
+}
+
+void LiftRevolve2(char *array,int k)
+{
+	int temp1 =*array;
+	int temp2 = *(array + 1);
+	*array = *(array + k);
+	*(array + k - 1) = *(array + k + 1);
+	*(array + k) = temp1;
+	*(array + k + 1) = temp2;
+	for (k = 0; k < 4; k++)
+	{
+		printf("%c", *(array + k));
+	}
+}
+void LiftRevolve3(char *array,int k)
+{
+	char temp = *(array+k);
+
+	for (k=3; k >0; k--)
+	{
+		*(array + k) = *((array + k-1));
+
+	}
+	*array = temp;
+	for (k = 0; k < 4; k++)
+	{
+		printf("%c", *(array + k));
+	}
+	
+}
+
+void LiftRevolve(){
+	int enter = 0;
+	char array[] = { "ABCD" };
+	while (1){
+		printf("请输入一个1——3的整数");
+		scanf("%d", &enter);
+		if (enter > 0 && enter < 4)
+		{
+			break;
+		}
+		else
+		{
+			continue;
+		}
+	}
+
+	switch (enter)
+	{
+	case 1: LiftRevolve1(array,enter);
+		break;
+	case 2: LiftRevolve2(array, enter);
+		break;
+	case 3: LiftRevolve3(array, enter);
+		break;
+	}
+}
+int main()
+{
+	
+	LiftRevolve( );
+	system("pause");
+	return 0;
+}
