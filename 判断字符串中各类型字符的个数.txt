@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<windows.h>
+#pragma warning(disable:4996)
+void Count(char array[10])
+{
+	int letter = 0, digit = 0, space = 0, others = 0,i=0;
+	for (; array[i] != '\0'; i++)
+	{
+
+		if (array[i] >= 'a'&&array[i] <= 'z' || array[i] >= 'A'&&array[i] <= 'Z')
+		{
+			letter++;
+		}
+		else if (array[i] >= '0'&&array[i] <= '9')
+		{
+
+			digit++;
+		}
+		else if (array[i] == ' ')
+		{
+			space++;
+		}
+		else
+		{
+
+			others++;
+		}
+	}
+	printf("letter: %d digit: %d space: %d others: %d ", letter, digit, space, others);
+}
+int main()
+{
+	char array[10] ={""};
+	printf("请输入一个有10个字符的字符串");
+	scanf("%s", &array);
+	Count( array);
+	system("pause");
+	return 0;
+}
