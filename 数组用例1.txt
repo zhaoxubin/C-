@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<windows.h>
+void ArrayExample(int array1[4],int size)
+{
+	int array2[4] = {1,1,1,1};
+	int i = 0;
+	for (; i < size; i++)
+	{    
+		int j = 0;
+		for (j = 0; j < size; j++)
+		{
+			if (i != j){
+				array2[i] *= array1[j];
+			}
+
+		}
+		
+	}
+	for (i = 0; i < size; i++)
+	{
+
+		printf("%d  ", array2[i]);
+	}
+	
+}
+int main()
+{
+	int array1[4] = {2,2,2,2};
+	int size = sizeof(array1) / sizeof(array1[0]);
+	ArrayExample(array1,size);
+	system("pause");
+	return 0;
+}
