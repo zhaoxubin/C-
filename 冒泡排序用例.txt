@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include<windows.h>
+#pragma warning(disable:4996)
+void BubbleSort(int array[], int size)
+{    
+	int i, j, temp;
+	for (j = 0; j < size-1; j++)
+	{
+		for (i = 0; i < size-1 - j; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				temp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = temp;
+			}
+		}
+	}
+	for (i = 0; i < size; i++)
+	{
+		printf("%d,", array[i]);
+	}
+	printf("\n");
+}
+int main()
+{
+	
+	int array[10], i = 0;
+	printf("please enter ten number");
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d,", &array[i]);
+	}
+	BubbleSort(array, 10);
+	system("pause");
+	return 0;
+}
+
+
